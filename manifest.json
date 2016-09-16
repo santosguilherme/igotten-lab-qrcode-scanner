@@ -1,0 +1,26 @@
+{
+  "short_name": "QR Scanner",
+  "name": "QR Code Scanner",
+  "description": "QR code scanner progressive web application",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+	{
+		"src": "/images/touch/android-chrome-144x144.png",
+		"sizes": "144x144",
+		"type": "image/png"
+	},
+  {
+    "src": "/images/touch/apple-touch-icon-180x180.png",
+    "sizes": "180x180",
+    "type": "image/png"
+  },
+  {
+    "src": "/images/touch/android-chrome-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }],
+  "start_url": "/",
+  "theme_color": "#607d8b",
+  "background_color": "#fff"
+}
