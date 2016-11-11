@@ -7,6 +7,9 @@ function isURL(url) {
 
 //Initializing qr scanner
 window.addEventListener("load", function(event) {
+  if (window.iOS) {
+    document.querySelector('#camera').click(); //Open camera options on load
+  }
   QRReader.init();
 });
 
