@@ -1,12 +1,6 @@
 {
   "name": "barcodeScanner",
-  "description": "",
   "version": "2.0.0",
-  "author": "",
-  "dependencies": {
-    "body-parser": "^1.15.0",
-    "express": "^4.13.4"
-  },
   "engines": {
     "node": "4.1.1"
   },
@@ -29,7 +23,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --hot --inline",
-    "deploy": "bash deploy.sh",
+    "deploy": "npm run build && bash deploy.sh",
     "build": "webpack --config webpack.config.js && uglifyjs ./dist/decoder.min.js -c -m -o ./dist/decoder.min.js"
   }
 }
