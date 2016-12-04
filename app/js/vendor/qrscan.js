@@ -1,3 +1,5 @@
+import {snackbar} from "../snackbar.js";
+
 var QRReader = {};
 
 QRReader.active = false;
@@ -97,7 +99,7 @@ QRReader.init = function () {
 
 	function showErrorMsg() {
 		document.querySelector('.custom-btn').style.display = "none"; //Hide scan button, if error
-		sendToastNotification('Unable to open the camera, provide permission to access the camera', 5000);
+		snackbar.show('Unable to open the camera, provide permission to access the camera', 5000);
 	}
 }
 
@@ -138,3 +140,5 @@ QRReader.scan = function (callback) {
 	}
 	newDecoderFrame();
 }
+
+module.exports = QRReader;

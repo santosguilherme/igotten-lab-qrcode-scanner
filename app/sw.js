@@ -1,17 +1,15 @@
-require('serviceworker-cache-polyfill');
-
-var CACHE_NAME = 'static-cache';
-var CACHE_VERSION = 2;
+var CACHE_NAME = 'static-cache-v2';
+var CACHE_VERSION = 1;
 
 var filesToCache = [
-  '/',
-  '/index.html',
-  '/css/styles.css',
-  '/js/app.js',
-  '/main.js',
-  '/manifest.json',
-  '/images/touch/android-chrome-144x144.png',
-  '/images/touch/android-chrome-192x192.png',
+  './',
+  './index.html',
+  './bundle.css',
+  './bundle.js',
+  './decoder.min.js',
+  './manifest.json',
+  './images/touch/android-chrome-144x144.png',
+  './images/touch/android-chrome-192x192.png',
   'https://fonts.googleapis.com/css?family=Material+Icons'
 ];
 
