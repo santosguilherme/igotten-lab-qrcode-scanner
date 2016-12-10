@@ -1,12 +1,17 @@
 var snackbar = {};
 
 var snackBarElement = document.querySelector('.app__snackbar');
+var snackbarMsg = null;
 
 //To show notification
 snackbar.show = (msg, options=3000) => {
   if (!msg) return;
+
+  if (snackbarMsg) {
+  	snackbarMsg.remove();
+  }
   
-  var snackbarMsg = document.createElement('div');  
+  snackbarMsg = document.createElement('div');  
   snackbarMsg.className = 'app__snackbar-msg';
   snackbarMsg.textContent = msg;
   snackBarElement.appendChild(snackbarMsg);

@@ -2,6 +2,8 @@ import QRReader from './vendor/qrscan.js';
 import {snackbar} from './snackbar.js';
 import styles from '../css/styles.css';
 
+require('offline-plugin/runtime').install(); //To generate sw.js file
+
 //To check result is url or not
 function isURL(url) {
   var regExp = new RegExp('^(?:[a-z]+:)?//', 'i');
