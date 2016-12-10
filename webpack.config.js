@@ -16,10 +16,12 @@ module.exports = {
   devServer: {
     contentBase: __dirname + '/app'
   },
+  
   module: {
     loaders: [
       {
         test: /\.js$/, //Check for all JS files
+        exclude: /node_modules/,
         use: [{
           loader: 'babel-loader',
           options: { presets: ['es2015'] }
@@ -51,6 +53,7 @@ module.exports = {
       }
     ]
   },
+
   plugins: [
     new ExtractTextPlugin({
       filename: 'bundle.css',
@@ -87,10 +90,10 @@ module.exports = {
       relativePaths: false,
       AppCache: false,
       publicPath: '/',
-      excludes: ['*.txt', '*.svg', 'CNAME', '**/.DS_Store', 'images/*.*', 'images/touch/*.*', 'images/touch/*.*'],
+      excludes: ['*.txt', '*.svg', 'CNAME', '**/.DS_Store', 'images/*.*', 'images/touch/*.*', 'images/touch/*.*', '**/*.map'],
       externals: ['https://fonts.googleapis.com/css?family=Material+Icons', 'images/touch/favicon.ico', 'images/touch/apple-touch-icon-180x180.png', 'images/touch/apple-touch-icon-144x144.png']
     })
   ],
 
-  stats: { colors: true }
+  devtool: 'source-map'
 }
