@@ -106,6 +106,7 @@ body {
   color: #fff;
   font-size: 30px;
   margin-top: 2px;
+  user-select: none;
 }
 
 video {

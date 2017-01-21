@@ -18,7 +18,10 @@ window.addEventListener("DOMContentLoaded", () => {
   var menuIconElement = document.querySelector('.app__header-icon');
   var menuElement = document.querySelector('.menu');
   var menuOverlayElement = document.querySelector('.menu__overlay');
-
+  var frame = document.createElement('img');
+  frame.src = '';
+  frame.id = 'frame';
+  
   //Menu click event
   menuIconElement.addEventListener('click', showMenu, false);
   menuOverlayElement.addEventListener('click', hideMenu, false);
@@ -65,19 +68,23 @@ window.addEventListener("DOMContentLoaded", () => {
   //Scan
   function scan() {
     QRReader.scan((result) => {
+      alert(result);
       copiedText = result;
       textBoxEle.value = result;
       textBoxEle.select();
       scanningEle.style.display = 'none';
       if (isURL(result)) {
-        dialogOpenBtnElement.style.display = 'inline-block';
+        // dialogOpenBtnElement.style.display = 'inline-block';
       }
-      dialogElement.classList.remove('app__dialog--hide');
+      // dialogElement.classList.remove('app__dialog--hide');
     });
   }
 
   //Hide dialog
   function hideDialog() {
+    copiedText = null;
+    textBoxEle.value = "";
+    frame.src = "";
     dialogElement.classList.add('app__dialog--hide');
   }
 
@@ -94,9 +101,6 @@ window.addEventListener("DOMContentLoaded", () => {
     iconElement.className = 'material-icons custom-fab-icon';
     iconElement.textContent = 'camera_enhance';
     
-    var frame = document.createElement('img');
-    frame.id = 'frame';
-
     var noSupportText = document.createElement('h2');
     noSupportText.className = "no-support";
     noSupportText.textContent = "Press the camera icon below."
@@ -114,9 +118,9 @@ window.addEventListener("DOMContentLoaded", () => {
     fabElement.appendChild(iconElement);
 
     //On camera change
-    camera.addEventListener('change', function(e) {
-      var file = e.target.files[0];
-      frame.src = URL.createObjectURL(file);
+    camera.addEventListener('change', function(event) {
+      frame.src = "";
+      frame.src = URL.createObjectURL(event.target.files[0]);
       snackbar.show('Scanning please wait...', 2000);
       scanningEle.style.display = 'block';
       scan();
@@ -124,6 +128,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //Click of camera fab icon
     fabElement.addEventListener('click', function(e) {
+      frame.src = "";
       document.querySelector("#camera").click();
     });
   }
